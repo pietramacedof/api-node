@@ -4,13 +4,13 @@ const app = express();
 
 app.use(express.json());
 
-const postRoutes = require('./routes/postRoutes');
+const locationRoutes = require('./routes/locationRoutes');
 const authRoute = require('./routes/authRoute');
 
 const PORT = process.env.PORT || 3000;
 
-app.use('/api', postRoutes);
-app.use("/api", authRoute);
+app.use('/api', locationRoutes);
+app.use('/api', authRoute);
 
 app._router.stack.forEach((route) => {
     if (route.route && route.route.path) {
